@@ -1,6 +1,10 @@
 # Cuckoo
 
-#### Images
+#### Images and Videos
+
+[![A Short Video of the Time Setting Mode](img/set-time-yt.png)](https://youtu.be/M00ukcpdEps)
+
+The above video is a short demonstration of the time setting mode of the cuckoo clock. This mode would be displayed when the clock is turned on.
 
 ![Overview of Build in a Custom Made Box](img/overview.JPG)
 
@@ -53,17 +57,17 @@ There are a few other things that I did to complete this build. Namely, I:
 These extra credit tasks were fun. Soldering took me two tries to get right as the first time wasn't super neat about it. Displaying the time on the LCD screen was a challenge in that I couldn't update the screen's buffer and print to the screen in the interrupt handler as those operations take too long. Thus, I had to use the `loop()` function to keep updating the display, only stopping when an interrupt is received. This seemed to work out pretty nicely. The code for writing text to the screen was taken from a library which is included in my handin.
 
 
---[ Memory Usage
+#### Memory Usage
 
 I stored the sound files in flash memory using PROGMEM. The sound files and my LCD screen libraries took up 42890 bytes of flash memory. Luckily, using the Mega this all fits in flash. If I were to use the Uno I wouldn't be able to fit the LCD screen libraries as well as the sound files even if I were to down sample (take out every other byte in the sound files and reduce the sample rate to 4000).
 
 
---[ Compilation and Running
+#### Compilation and Running
 
 To compile and run the code the `ArducamSSD1306-master` directory should be dragged into the corresponding Arduino `libraries` directory. Aside from that, everything else should be standard.
 
 
---[ Testing Results
+#### Testing Results
 
 The clock held up well over a 24-hour period. The constant drift I experienced with the Mega was easily compensated as is shown in the ISR (I made a two-line comment about it).
 
